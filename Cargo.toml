@@ -4,7 +4,7 @@ version = "0.1.0"
 authors = ["yesseri <henrik.zenkert@gmail.com>"]
 edition = "2018"
 description = "Remove diacritics from letters, for example when standardizing input for a search"
-license = "GNU GPLv3"
+license = "GPL-3.0"
 repository = "https://github.com/YesSeri/diacritics"
 
 [dependencies]
