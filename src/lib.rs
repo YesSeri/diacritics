@@ -1,11 +1,16 @@
-fn main() {
-    let string: &str = "TÅRÖÄÆØ";
-    println!("{}", string);
-    let new_string = remove_diacritics(&string);
-    println!("{}", new_string);
-}
+/// Used for removing diacritics from a string.
+///
+/// # Examples
+///
+/// ```
+/// let string = "TÅRÖÄÆØ";
+/// let new_string = diacritics::remove_diacritics(string);
+///
+/// assert_eq!(string, new_string));
+/// ```
+/// 
 
-fn remove_diacritics(string: &str) -> String {
+pub fn remove_diacritics(string: &str) -> String {
     let v = string.chars();
     let mut split_string: Vec<String> = Vec::new();
     for c in v {
