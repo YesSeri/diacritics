@@ -6,6 +6,5 @@ edition = "2018"
 description = "Remove diacritics from letters, for example when standardizing input for a search"
 license = "GNU GPLv3"
 repository = "https://github.com/YesSeri/diacritics"
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
