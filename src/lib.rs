@@ -6,9 +6,9 @@
 /// let string = "TÅRÖÄÆØ";
 /// let new_string = diacritics::remove_diacritics(string);
 ///
-/// assert_eq!(string, new_string));
+/// assert_eq!("TAROAAO", new_string);
 /// ```
-/// 
+///
 
 pub fn remove_diacritics(string: &str) -> String {
     let v = string.chars();
@@ -16,19 +16,19 @@ pub fn remove_diacritics(string: &str) -> String {
     for c in v {
         split_string.push(String::from(c));
     }
-    let new_string: String = split_string
+    split_string
         .iter()
         .map(|j| match j.as_ref() {
             "À" | "Á" | "Â" | "Ã" | "Ä" | "Å" | "Æ" => "A",
             "Þ" => "B",
             "Ç" | "Č" => "C",
-            "Ď" | "Ð"  => "D",
+            "Ď" | "Ð" => "D",
             "Ě" | "È" | "É" | "Ê" | "Ë" => "E",
             "Ƒ" => "F",
             "Ì" | "Í" | "Î" | "Ï" => "I",
             "Ň" | "Ñ" => "N",
             "Ò" | "Ó" | "Ô" | "Õ" | "Ö" | "Ø" => "O",
-            "Ř" =>"R",
+            "Ř" => "R",
             "ß" => "ss",
             "Š" => "S",
             "Ť" => "T",
@@ -37,9 +37,9 @@ pub fn remove_diacritics(string: &str) -> String {
             "Ž" => "Z",
 
             "à" | "á" | "â" | "ã" | "ä" | "å" | "æ" => "a",
-            "þ"=> "b",
+            "þ" => "b",
             "ç" | "č" => "c",
-            "ď" | "ð"  => "d",
+            "ď" | "ð" => "d",
             "ě" | "è" | "é" | "ê" | "ë" => "e",
             "ƒ" => "f",
             "ì" | "í" | "î" | "ï" => "i",
@@ -51,21 +51,19 @@ pub fn remove_diacritics(string: &str) -> String {
             "ů" | "ù" | "ú" | "û" | "ü" => "u",
             "ý" | "ÿ" => "y",
             "ž" => "z",
-
             _ => j,
         })
-        .collect();
-    new_string
+        .collect()
 }
 #[cfg(test)]
 mod tests {
     use super::*;
     #[test]
-    fn test_uppercase(){
+    fn test_uppercase() {
         assert_eq!(remove_diacritics("TÅRÖÄÆØ"), String::from("TAROAAO"))
     }
     #[test]
-    fn test_lowercase(){
+    fn test_lowercase() {
         assert_eq!(remove_diacritics("čďêƒíó"), String::from("cdefio"))
     }
 }
