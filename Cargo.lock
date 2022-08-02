@@ -5,3 +5,12 @@ version = 3
 [[package]]
 name = "diacritics"
 version = "0.1.3"
+dependencies = [
+ "diacritics 0.1.3 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "diacritics"
+version = "0.1.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "720807774f004a558d2b6d88e17b27a9c7cedccd541f4851446976631da2a151"

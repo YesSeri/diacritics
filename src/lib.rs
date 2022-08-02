@@ -1,3 +1,4 @@
+#![feature(test)]
 /// Used for removing diacritics from a string.
 ///
 /// # Examples
@@ -171,10 +172,12 @@ fn escape_diacritic(acc: &mut String, current: char) {
         _ => acc.push_str(&current.to_string()),
     }
 }
+extern crate test;
 
 #[cfg(test)]
 mod tests {
     use super::*;
+    use test::Bencher;
     #[test]
     fn test_uppercase() {
         assert_eq!(remove_diacritics("TÅRÖÄÆØ"), String::from("TAROAAEO"))
@@ -182,6 +185,20 @@ mod tests {
     #[test]
     fn test_lowercase() {
         assert_eq!(remove_diacritics("čďêƒíó"), String::from("cdefio"))
+    }
+
+    #[bench]
+    fn bench_new(b: &mut Bencher) {
+        b.iter(|| {
+            remove_diacritics(test::black_box("TÅRÖÄÆØAⒶＡÀÁÂẦẤẪẨÃĀĂẰẮẴẲȦǠÄǞẢÅǺǍȀȂẠẬẶḀĄȺⱯ"))
+        });
+    }
+
+    #[bench]
+    fn bench_old(b: &mut Bencher) {
+        b.iter(|| {
+            diacritics::remove_diacritics(test::black_box("TÅRÖÄÆØAⒶＡÀÁÂẦẤẪẨÃĀĂẰẮẴẲȦǠÄǞẢÅǺǍȀȂẠẬẶḀĄȺⱯ"))
+        });
     }
 }
 
