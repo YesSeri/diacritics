@@ -6,7 +6,7 @@
 /// let string = "TÅRÖÄÆØ";
 /// let new_string = diacritics::remove_diacritics(string);
 ///
-/// assert_eq!("TAROAAEO", new_string);
+/// assert_eq!("TAROAAO", new_string);
 /// ```
 ///
 
@@ -23,7 +23,7 @@ fn escape_diacritic(acc: &mut String, current: char) {
         | 'Ẵ' | 'Ẳ' | 'Ȧ' | 'Ǡ' | 'Ä' | 'Ǟ' | 'Ả' | 'Å' | 'Ǻ' | 'Ǎ' | 'Ȁ' | 'Ȃ' | 'Ạ' | 'Ậ' | 'Ặ'
         | 'Ḁ' | 'Ą' | 'Ⱥ' | 'Ɐ' => acc.push('A'),
         'Ꜳ' => acc.push_str("AA"),
-        'Æ' | 'Ǽ' | 'Ǣ' => acc.push_str("AE"),
+        'Æ' | 'Ǽ' | 'Ǣ' => acc.push_str("A"),
         'Ꜵ' => acc.push_str("AO"),
         'Ꜷ' => acc.push_str("AU"),
         'Ꜹ' | 'Ꜻ' => acc.push_str("AV"),
@@ -100,7 +100,7 @@ fn escape_diacritic(acc: &mut String, current: char) {
         | 'ắ' | 'ẵ' | 'ẳ' | 'ȧ' | 'ǡ' | 'ä' | 'ǟ' | 'ả' | 'å' | 'ǻ' | 'ǎ' | 'ȁ' | 'ȃ' | 'ạ' | 'ậ'
         | 'ặ' | 'ḁ' | 'ą' | 'ⱥ' | 'ɐ' => acc.push('a'),
         'ꜳ' => acc.push_str("aa"),
-        'æ' | 'ǽ' | 'ǣ' => acc.push_str("ae"),
+        'æ' | 'ǽ' | 'ǣ' => acc.push('a'),
         'ꜵ' => acc.push_str("ao"),
         'ꜷ' => acc.push_str("au"),
         'ꜹ' | 'ꜻ' => acc.push_str("av"),
@@ -168,7 +168,7 @@ fn escape_diacritic(acc: &mut String, current: char) {
         'z' | 'ⓩ' | 'ｚ' | 'ź' | 'ẑ' | 'ż' | 'ž' | 'ẓ' | 'ẕ' | 'ƶ' | 'ȥ' | 'ɀ' | 'ⱬ' | 'ꝣ' => {
             acc.push('z')
         }
-        _ => acc.push_str(&current.to_string()),
+        _ => acc.push(current),
     }
 }
 
@@ -177,7 +177,7 @@ mod tests {
     use super::*;
     #[test]
     fn test_uppercase() {
-        assert_eq!(remove_diacritics("TÅRÖÄÆØ"), String::from("TAROAAEO"))
+        assert_eq!(remove_diacritics("TÅRÖÄÆØ"), String::from("TAROAAO"))
     }
     #[test]
     fn test_lowercase() {
