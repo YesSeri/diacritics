@@ -184,14 +184,11 @@ mod tests {
     fn test_lowercase() {
         assert_eq!(remove_diacritics("čďêƒíó"), String::from("cdefio"))
     }
-        #[test]
+    #[test]
     fn test_real_diacritics() {
         // this is not a traditional é, but a combination of e and \u{300}
-        assert_eq!(remove_diacritics("é"), String::from("e"))
-    }
-    #[test]
-    fn test_real_diacritics2() {
-        assert_eq!(remove_diacritics("e\u{300}"), String::from("e"))
+        assert_eq!(remove_diacritics("é"), String::from("e"));
+        assert_eq!(remove_diacritics("e\u{300}"), String::from("e"));
     }
 }
 
