@@ -1,6 +1,6 @@
 [package]
 name = "diacritics"
-version = "0.2.1"
+version = "0.2.2"
 authors = ["yesseri <henrik.zenkert@gmail.com>"]
 edition = "2021"
 description = "Remove diacritics from letters, for example when standardizing input for a search"
