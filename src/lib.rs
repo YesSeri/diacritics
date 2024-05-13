@@ -23,7 +23,7 @@ fn escape_diacritic(acc: &mut String, current: char) {
         | 'Ắ' | 'Ẵ' | 'Ẳ' | 'Ȧ' | 'Ǡ' | 'Ä' | 'Ǟ' | 'Ả' | 'Å' | 'Ǻ' | 'Ǎ' | 'Ȁ' | 'Ȃ' | 'Ạ'
         | 'Ậ' | 'Ặ' | 'Ḁ' | 'Ą' | 'Ⱥ' | 'Ɐ' => acc.push('A'),
         'Ꜳ' => acc.push_str("AA"),
-        'Æ' | 'Ǽ' | 'Ǣ' => acc.push_str("A"),
+        'Æ' | 'Ǽ' | 'Ǣ' => acc.push('A'),
         'Ꜵ' => acc.push_str("AO"),
         'Ꜷ' => acc.push_str("AU"),
         'Ꜹ' | 'Ꜻ' => acc.push_str("AV"),
