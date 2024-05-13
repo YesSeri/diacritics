@@ -1,15 +1,21 @@
-/// Used for removing diacritics from a string.
+//! Used for removing diacritics from a string.
+//!
+//! # Examples
+//!
+//! ```
+//! let new_string = diacritics::remove_diacritics("TÅRÖÄÆØ");
+//! assert_eq!("TAROAAO", new_string);
+//! ```
+//!
+
+/// This function removes diacritics and weird character and returns a more standardized string.
 ///
-/// # Examples
-///
+/// For a full list of transformations, you can view the [source code](https://github.com/YesSeri/diacritics/blob/main/src/lib.rs).
 /// ```
-/// let string = "TÅRÖÄÆØ";
-/// let new_string = diacritics::remove_diacritics(string);
-///
+/// let new_string = diacritics::remove_diacritics("TÅRÖÄÆØ");
 /// assert_eq!("TAROAAO", new_string);
 /// ```
 ///
-
 pub fn remove_diacritics(string: &str) -> String {
     let chars = string.chars();
     chars.fold(String::with_capacity(string.len()), |mut acc, current| {
