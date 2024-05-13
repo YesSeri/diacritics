@@ -160,6 +160,7 @@ fn escape_diacritic(acc: &mut String, current: char) {
         'z' | 'ⓩ' | 'ｚ' | 'ź' | 'ẑ' | 'ż' | 'ž' | 'ẓ' | 'ẕ' | 'ƶ' | 'ȥ' | 'ɀ' | 'ⱬ' | 'ꝣ' => {
             acc.push('z')
         }
+        '\u{0300}'..='\u{036F}' | '\u{1AB0}'..='\u{1AFF}' | '\u{1DC0}'..='\u{1DFF}' => {}
         _ => acc.push(current),
     }
 }
@@ -173,5 +174,11 @@ mod tests {
     #[test]
     fn test_lowercase() {
         assert_eq!(remove_diacritics("čďêƒíó"), String::from("cdefio"))
+    }
+    #[test]
+    fn test_real_diacritics() {
+        // this is not a traditional é, but a combination of e and \u{300}
+        assert_eq!(remove_diacritics("é"), String::from("e"));
+        assert_eq!(remove_diacritics("e\u{300}"), String::from("e"));
     }
 }
