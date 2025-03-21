@@ -29,7 +29,7 @@ fn escape_diacritic(acc: &mut String, current: char) {
         | 'Ắ' | 'Ẵ' | 'Ẳ' | 'Ȧ' | 'Ǡ' | 'Ä' | 'Ǟ' | 'Ả' | 'Å' | 'Ǻ' | 'Ǎ' | 'Ȁ' | 'Ȃ' | 'Ạ'
         | 'Ậ' | 'Ặ' | 'Ḁ' | 'Ą' | 'Ⱥ' | 'Ɐ' => acc.push('A'),
         'Ꜳ' => acc.push_str("AA"),
-        'Æ' | 'Ǽ' | 'Ǣ' => acc.push('A'),
+        'Æ' | 'Ǽ' | 'Ǣ' => acc.push_str("AE"),
         'Ꜵ' => acc.push_str("AO"),
         'Ꜷ' => acc.push_str("AU"),
         'Ꜹ' | 'Ꜻ' => acc.push_str("AV"),
@@ -101,7 +101,7 @@ fn escape_diacritic(acc: &mut String, current: char) {
         | 'ằ' | 'ắ' | 'ẵ' | 'ẳ' | 'ȧ' | 'ǡ' | 'ä' | 'ǟ' | 'ả' | 'å' | 'ǻ' | 'ǎ' | 'ȁ' | 'ȃ'
         | 'ạ' | 'ậ' | 'ặ' | 'ḁ' | 'ą' | 'ⱥ' | 'ɐ' => acc.push('a'),
         'ꜳ' => acc.push_str("aa"),
-        'æ' | 'ǽ' | 'ǣ' => acc.push('a'),
+        'æ' | 'ǽ' | 'ǣ' => acc.push_str("ae"),
         'ꜵ' => acc.push_str("ao"),
         'ꜷ' => acc.push_str("au"),
         'ꜹ' | 'ꜻ' => acc.push_str("av"),
