@@ -6,5 +6,5 @@ This is a rust crate for removing diacritics from a string. It can be useful whe
 ```rust
 let string = "TÅRÖÄÆØ";
 let new_string = diacritics::remove_diacritics(string);
-assert_eq!("TAROAAO", new_string);
+assert_eq!("TAROAAEO", new_string);
 ```
