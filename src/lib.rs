@@ -4,7 +4,7 @@
 //!
 //! ```
 //! let new_string = diacritics::remove_diacritics("TÅRÖÄÆØ");
-//! assert_eq!("TAROAAO", new_string);
+//! assert_eq!("TAROAAEO", new_string);
 //! ```
 //!
 
@@ -13,7 +13,7 @@
 /// For a full list of transformations, you can view the [source code](https://github.com/YesSeri/diacritics/blob/main/src/lib.rs).
 /// ```
 /// let new_string = diacritics::remove_diacritics("TÅRÖÄÆØ");
-/// assert_eq!("TAROAAO", new_string);
+/// assert_eq!("TAROAAEO", new_string);
 /// ```
 ///
 pub fn remove_diacritics(string: &str) -> String {
@@ -175,7 +175,7 @@ mod tests {
     use super::*;
     #[test]
     fn test_uppercase() {
-        assert_eq!(remove_diacritics("TÅRÖÄÆØ"), String::from("TAROAAO"))
+        assert_eq!(remove_diacritics("TÅRÖÄÆØ"), String::from("TAROAAEO"))
     }
     #[test]
     fn test_lowercase() {
